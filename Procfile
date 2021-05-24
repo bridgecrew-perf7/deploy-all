@@ -1,0 +1,1 @@
+web: java -Xms4G -Xmx4G -cp target/classes:target/dependency/* IP.DemoApplication
