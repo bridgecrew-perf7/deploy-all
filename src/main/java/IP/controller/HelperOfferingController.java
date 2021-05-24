@@ -26,14 +26,17 @@ public class HelperOfferingController {
     @Autowired
     private OfferingService offService;
 
-    @PostMapping("/offeringHelper")//@RequestBody
-    public ResponseEntity<String> newHelperOff(@RequestBody Response rep) {
 
-        //System.out.println(rep.getUsername() + " " + rep.getDistanceAccepted());
+    @PostMapping("/offeringHelper")//@RequestBody
+    public @ResponseBody
+    ResponseEntity<?> newHelperOff(@RequestBody Response rep) {
+
+        StringResponse message = new StringResponse();
 
         Helper helper = helpService.createHelper(rep.getUsername(), rep.getDistanceAccepted());
         if (helper == null) {
-            return new ResponseEntity<>("User " + rep.getUsername() + " doesn't exists", HttpStatus.NOT_FOUND);
+            message.setMessage("User " + rep.getUsername() + " doesn't exists");
+            return new ResponseEntity<StringResponse>(message, HttpStatus.NOT_FOUND);
         }
 
         for (Map.Entry<String, Integer> entry : rep.getTags().entrySet()) {
@@ -42,24 +45,31 @@ public class HelperOfferingController {
 
             Offering off = offService.createOffering(rep.getUsername(), name, quantity, rep.getDetails());
             if (off == null) {
-                return new ResponseEntity<>("User " + rep.getUsername() + " or need " + name + " doesn't exists", HttpStatus.NOT_FOUND);
+                message.setMessage("User " + rep.getUsername() + " or need " + name + " doesn't exists");
+                return new ResponseEntity<StringResponse>(message, HttpStatus.NOT_FOUND);
             }
         }
 
 
-        return new ResponseEntity<>("Offering created", HttpStatus.OK);
+        message.setMessage("Offering created");
+        return new ResponseEntity<StringResponse>(message, HttpStatus.OK);
     }
 
 
     @PostMapping(value = "/modifyAvailable")
-    public ResponseEntity<String> modifyAva(@RequestBody Response rep) {
+    public @ResponseBody
+    ResponseEntity<?> modifyAva(@RequestBody Response rep) {
+
+        StringResponse message = new StringResponse();
 
         Boolean verif = helpService.modifyAvailable(rep.getUsername(), rep.getAvailable());
-        if (verif == false) {
-            return new ResponseEntity<>("User " + rep.getUsername() + " doesn't exists", HttpStatus.NOT_FOUND);
+        if (!verif) {
+            message.setMessage("User " + rep.getUsername() + " doesn't exists");
+            return new ResponseEntity<StringResponse>(message, HttpStatus.NOT_FOUND);
         }
 
-        return new ResponseEntity<>("Available field modified", HttpStatus.OK);
+        message.setMessage("Available field modified");
+        return new ResponseEntity<StringResponse>(message, HttpStatus.OK);
     }
 
 
