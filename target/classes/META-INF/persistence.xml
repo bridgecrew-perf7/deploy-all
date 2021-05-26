@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-        <persistence xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                     xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
-    <persistence-unit name="heroku_ab221cef7d5f484">
+<persistence xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
+    <persistence-unit name="d1o06mn3d95rl3">
 
         <class>IP.entity.User</class>
         <class>IP.entity.Needer</class>
@@ -15,10 +15,10 @@
 
 
         <properties>
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://eu-cdbr-west-01.cleardb.com:3306/heroku_ab221cef7d5f484"/>
-            <property name="javax.persistence.jdbc.user" value="bca63b824a0e2b"/>
-            <property name="javax.persistence.jdbc.password" value="40a7f923"/>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://ec2-54-73-58-75.eu-west-1.compute.amazonaws.com:5432/d1o06mn3d95rl3"/>
+            <property name="javax.persistence.jdbc.user" value="pmvjgzmjtsdfmd"/>
+            <property name="javax.persistence.jdbc.password" value="0331024d79ff1317f9d40b768c354007057435a1f80d5b79f3f4d5cad8d39366"/>
         </properties>
     </persistence-unit>
 </persistence>

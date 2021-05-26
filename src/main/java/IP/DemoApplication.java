@@ -15,7 +15,7 @@ public class DemoApplication {
 
     public static void main(String[] args) throws Exception {
 
-        ManagerFactorySingleton.setName("heroku_ab221cef7d5f484");
+        ManagerFactorySingleton.setName("d1o06mn3d95rl3");
         SpringApplication.run(DemoApplication.class, args);
     }
 
