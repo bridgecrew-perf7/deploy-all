@@ -11,6 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 @SpringBootApplication
+@EnableWebMvc
 @Configuration
 public class DemoApplication {
 
